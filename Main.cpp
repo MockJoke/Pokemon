@@ -9,6 +9,23 @@ enum class PokemonChoice
     InvalidChoice
 };
 
+std::string GetPokemonName(PokemonChoice choice)
+{
+    switch (choice)
+    {
+    case PokemonChoice::Charmander:
+        return "Charmander";
+    case PokemonChoice::Bulbasaur:
+        return "Bulbasaur";
+    case PokemonChoice::Squirtle:
+        return "Squirtle";
+    case PokemonChoice::InvalidChoice:
+        return "Charmander";
+    default:
+        return "Charmander";
+    }
+}
+
 int main()
 {
     // Variables to store player name and chosen Pokemon
@@ -75,7 +92,7 @@ int main()
     }
 
     // Concluding the first chapter
-    std::cout << "Professor Oak: " << chosen_pokemon << " and you, " << player_name << ", are going to be the best of friends!\n";
+    std::cout << "Professor Oak: " << GetPokemonName(chosen_pokemon) << " and you, " << player_name << ", are going to be the best of friends!\n";
     std::cout << "Professor Oak: Your journey begins now! Get ready to explore the vast world of Pokemon!\n";
 
     return 0;
