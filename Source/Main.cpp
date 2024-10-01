@@ -14,7 +14,8 @@ enum class PokemonType
     FIRE,
     GRASS,
     WATER,
-    ELECTRIC
+    ELECTRIC,
+    NORMAL
 };
 
 class Pokemon
@@ -26,7 +27,10 @@ public:
     
     Pokemon()
     {
-
+        name = "Unknown";
+        type = PokemonType::NORMAL;
+        health = 50;
+        std::cout << "A new Pokemon has been created with the default constructor!\n";
     }
 
     Pokemon(std::string p_name, PokemonType p_type, int p_health)
@@ -34,6 +38,20 @@ public:
         name = p_name;
         type = p_type;
         health = p_health;
+        std::cout << "A new Pokemon named " << name << " has been created!\n";
+    }
+
+    Pokemon(const Pokemon &other)
+    {
+        name = other.name;
+        type = other.type;
+        health = other.health;
+        std::cout << "A new Pokemon has been copied from " << other.name << "!\n";
+    }
+
+    ~Pokemon()
+    {
+        std::cout << name << " has been released.\n";
     }
     
     void attack()
@@ -48,6 +66,20 @@ public:
     std::string name;
     Pokemon chosenPokemon;
 
+    Player()
+    {
+        name = "Trainer";
+        chosenPokemon = Pokemon();
+        std::cout << "A new player named " << name << " has been created!\n";
+    }
+
+    Player(std::string p_name, Pokemon p_chosenPokemon)
+    {
+        name = p_name;
+        chosenPokemon = p_chosenPokemon;
+        std::cout << "Player " << name << " has been created!\n";
+    }
+    
     void choosePokemon(int choice)
     {
         switch ((PokemonChoice)choice)
@@ -73,6 +105,11 @@ class ProfessorOak
 {
 public:
     std::string name;
+
+    ProfessorOak(std::string p_name)
+    {
+        name = p_name;
+    }
 
     void greetPlayer(Player& player)
     {
@@ -105,16 +142,29 @@ public:
 
 int main()
 {
-    ProfessorOak professor; 
-    Pokemon placeholderPokemon;
-    Player player;
+    Pokemon defaultPokemon;
+    std::cout << "Pokemon Details:\n";
+    std::cout << "Name: " << defaultPokemon.name << "\nType: " << (int)defaultPokemon.type << "\nHealth: " << defaultPokemon.health << "\n";
 
-    placeholderPokemon.name = "Pikachu";
-    placeholderPokemon.type = PokemonType::ELECTRIC;
-    placeholderPokemon.health = 40;
+    Pokemon charmander("Charmander", PokemonType::FIRE, 100);
+    std::cout << "Pokemon Details:\n";
+    std::cout << "Name: " << charmander.name << "\nType: " << (int)charmander.type << "\nHealth: " << charmander.health << "\n";
 
-    player.name = "Trainer";
-    professor.name = "Professor Oak";
+    Pokemon bulbasaur("Bulbasaur", PokemonType::GRASS, 100);
+    Pokemon bulbasaurCopy = bulbasaur;
+    
+    std::cout << "Original Pokemon Health: " << bulbasaur.health << "\n";
+    std::cout << "Copied Pokemon Health: " << bulbasaurCopy.health << "\n";
+
+    bulbasaurCopy.health = 80;
+    std::cout << "After Modification:\n";
+    std::cout << "Original Pokemon Health: " << bulbasaur.health << "\n";
+    std::cout << "Copied Pokemon Health: " << bulbasaurCopy.health << "\n";
+
+    Pokemon squirtle("Squirtle", PokemonType::WATER, 100);
+    
+    ProfessorOak professor("Professor Oak"); 
+    Player player("Ash", charmander);
 
     professor.greetPlayer(player); 
     professor.offerPokemonChoices(player); 
