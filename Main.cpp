@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-enum PokemonChoice 
+enum class PokemonChoice 
 {
     Charmander,
     Bulbasaur,
@@ -13,7 +13,7 @@ int main()
 {
     // Variables to store player name and chosen Pokemon
     std::string player_name;
-    PokemonChoice chosen_pokemon = InvalidChoice;
+    PokemonChoice chosen_pokemon = PokemonChoice::InvalidChoice;
 
     // Introduction by the Professor
     std::cout << "Professor Oak: Hello there! Welcome to the world of Pokemon!\n";
@@ -42,34 +42,34 @@ int main()
     switch(choice) 
     {
         case 1:
-            chosen_pokemon = Charmander;
+            chosen_pokemon = PokemonChoice::Charmander;
             break;
         case 2:
-            chosen_pokemon = Bulbasaur;
+            chosen_pokemon = PokemonChoice::Bulbasaur;
             break;
         case 3:
-            chosen_pokemon = Squirtle;
+            chosen_pokemon = PokemonChoice::Squirtle;
             break;
         default:
-            chosen_pokemon = InvalidChoice;
+            chosen_pokemon = PokemonChoice::InvalidChoice;
             break;
     }
 
     // Respond based on the chosen Pokemon
     switch(chosen_pokemon) 
     {
-        case Charmander:
+        case PokemonChoice::Charmander:
             std::cout << "Professor Oak: A fiery choice! Charmander is yours!\n";
             break;
-        case Bulbasaur:
+        case PokemonChoice::Bulbasaur:
             std::cout << "Professor Oak: A fine choice! Bulbasaur is always ready to grow on you!\n";
             break;
-        case Squirtle:
+        case PokemonChoice::Squirtle:
             std::cout << "Professor Oak: Splendid! Squirtle will keep you cool under pressure!\n";
             break;
         default:
             std::cout << "Professor Oak: Hmm, that doesn't seem right. Let me choose for you...\n";
-            chosen_pokemon = Charmander; // Default to Charmander if invalid choice
+            chosen_pokemon = PokemonChoice::Charmander; // Default to Charmander if invalid choice
             std::cout << "Professor Oak: Just kidding! Let's go with Charmander, the fiery dragon in the making!\n";
             break;
     }
