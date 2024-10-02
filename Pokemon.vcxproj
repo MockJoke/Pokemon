@@ -139,6 +139,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ClInclude Include="Header\Grass.hpp" />
     <ClInclude Include="Header\Player.hpp" />
     <ClInclude Include="Header\Pokemon.hpp" />
     <ClInclude Include="Header\PokemonChoice.hpp" />
