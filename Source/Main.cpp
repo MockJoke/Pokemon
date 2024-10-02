@@ -188,28 +188,65 @@ public:
     }
 };
 
+void gameLoop(Player &player)
+{
+    int choice;
+    bool keepPlaying = true;
+
+    while (keepPlaying)
+    {
+        clearConsole();
+
+        std::cout << "\nWhat would you like to do next, " << player.name << "?\n";
+        std::cout << "1. Battle Wild Pokémon\n";
+        std::cout << "2. Visit PokeCenter\n";
+        std::cout << "3. Challenge Gyms\n";
+        std::cout << "4. Enter Pokémon League\n";
+        std::cout << "5. Quit\n";
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+
+        // Clear the newline character left in the buffer after cin >> choice
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+          
+        switch (choice)
+        {
+        case 1:
+            std::cout << "You look around... but all the wild Pokémon are on vacation. Maybe try again later?\n";
+            break;
+        case 2:
+            std::cout << "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokémon will have to tough it out for now!\n";
+            break;
+        case 3:
+            std::cout << "You march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!\n";
+            break;
+        case 4:
+            std::cout << "You boldly step towards the Pokémon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'\n";
+            break;
+        case 5:
+            std::cout << "You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokémon training!'\n";
+            std::cout << "Are you sure you want to quit? (y/n): ";
+            char quitChoice;
+            std::cin >> quitChoice;
+            if (quitChoice == 'y' || quitChoice == 'Y')
+            {
+                keepPlaying = false;
+            }
+            break;
+        default:
+            std::cout << "That's not a valid choice. Try again!\n";
+            break;
+        }
+
+        waitForEnter();
+    }
+
+    std::cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+}
+
 int main()
 {
-    Pokemon defaultPokemon;
-    std::cout << "Pokemon Details:\n";
-    std::cout << "Name: " << defaultPokemon.name << "\nType: " << (int)defaultPokemon.type << "\nHealth: " << defaultPokemon.health << "\n";
-
     Pokemon charmander("Charmander", PokemonType::FIRE, 100);
-    std::cout << "Pokemon Details:\n";
-    std::cout << "Name: " << charmander.name << "\nType: " << (int)charmander.type << "\nHealth: " << charmander.health << "\n";
-
-    Pokemon bulbasaur("Bulbasaur", PokemonType::GRASS, 100);
-    Pokemon bulbasaurCopy = bulbasaur;
-    
-    std::cout << "Original Pokemon Health: " << bulbasaur.health << "\n";
-    std::cout << "Copied Pokemon Health: " << bulbasaurCopy.health << "\n";
-
-    bulbasaurCopy.health = 80;
-    std::cout << "After Modification:\n";
-    std::cout << "Original Pokemon Health: " << bulbasaur.health << "\n";
-    std::cout << "Copied Pokemon Health: " << bulbasaurCopy.health << "\n";
-
-    Pokemon squirtle("Squirtle", PokemonType::WATER, 100);
     
     ProfessorOak professor("Professor Oak"); 
     Player player("Ash", charmander);
@@ -218,8 +255,7 @@ int main()
     professor.offerPokemonChoices(player);
     professor.explainMainQuest(player);
 
-    std::cout << "Professor Oak: " <<  player.chosenPokemon.name << " and you, " << player.name << ", are going to be the best of friends!\n";
-    std::cout << "Professor Oak: Your journey begins now! Get ready to explore the vast world of Pokemon!\n";
+    gameLoop(player);
 
     return 0;
 }
