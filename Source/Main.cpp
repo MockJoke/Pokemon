@@ -1,6 +1,20 @@
 #include <iostream>
 #include <string>
 
+void waitForEnter()
+{
+    std::cin.get();
+}
+
+void clearConsole()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    (void)system("clear");
+#endif
+}
+
 enum class PokemonChoice 
 {
     CHARMANDER = 1,
@@ -30,7 +44,6 @@ public:
         name = "Unknown";
         type = PokemonType::NORMAL;
         health = 50;
-        std::cout << "A new Pokemon has been created with the default constructor!\n";
     }
 
     Pokemon(std::string p_name, PokemonType p_type, int p_health)
@@ -38,7 +51,6 @@ public:
         name = p_name;
         type = p_type;
         health = p_health;
-        std::cout << "A new Pokemon named " << name << " has been created!\n";
     }
 
     Pokemon(const Pokemon &other)
@@ -46,12 +58,10 @@ public:
         name = other.name;
         type = other.type;
         health = other.health;
-        std::cout << "A new Pokemon has been copied from " << other.name << "!\n";
     }
 
     ~Pokemon()
     {
-        std::cout << name << " has been released.\n";
     }
     
     void attack()
@@ -70,14 +80,12 @@ public:
     {
         name = "Trainer";
         chosenPokemon = Pokemon();
-        std::cout << "A new player named " << name << " has been created!\n";
     }
 
     Player(std::string p_name, Pokemon p_chosenPokemon)
     {
         name = p_name;
         chosenPokemon = p_chosenPokemon;
-        std::cout << "Player " << name << " has been created!\n";
     }
     
     void choosePokemon(int choice)
@@ -96,8 +104,10 @@ public:
         default: 
             chosenPokemon = Pokemon("Pikachu", PokemonType::ELECTRIC, 100); 
             break; 
-        } 
+        }
+        
         std::cout << "Player " << name << " chose " << chosenPokemon.name << "!\n";
+        waitForEnter();
     }
 };
 
@@ -113,9 +123,12 @@ public:
 
     void greetPlayer(Player& player)
     {
-        std::cout << name << ": Hello there! Welcome to the world of Pokemon!\n"; 
-        std::cout << name << ": My name is Oak. People call me the Pokemon Professor!\n"; 
+        std::cout << name << ": Hello there! Welcome to the world of Pokemon!\n";
+        waitForEnter();
+        std::cout << name << ": My name is Oak. People call me the Pokemon Professor!\n";
+        waitForEnter();
         std::cout << name << ": But enough about me. Let's talk about you!\n";
+        waitForEnter();
     }
 
     void offerPokemonChoices(Player& player)
@@ -123,10 +136,12 @@ public:
         std::cout << name << ": First, tell me, what's your name?\n"; 
         getline(std::cin, player.name); 
         std::cout << name << ": Ah, " << player.name << "! What a fantastic name!\n";
-        std::cout << name << ": You must be eager to start your adventure. But first, you’ll need a Pokemon of your own!\n"; 
+        waitForEnter();
+        std::cout << name << ": You must be eager to start your adventure. But first, you’ll need a Pokemon of your own!\n";
+        waitForEnter();
 
-        // Presenting Pokemon choices 
-        std::cout << name << ": I have three Pokemon here with me. They're all quite feisty!\n"; 
+        std::cout << name << ": I have three Pokemon here with me. They're all quite feisty!\n";
+        waitForEnter();
         std::cout << name << ": Choose wisely...\n";
         std::cout << "1. Charmander - The fire type. A real hothead!\n"; 
         std::cout << "2. Bulbasaur - The grass type. Calm and collected!\n"; 
@@ -137,6 +152,39 @@ public:
         std::cin >> choice;
         
         player.choosePokemon(choice);
+        waitForEnter();
+    }
+
+    void explainMainQuest(Player& player)
+    {
+        clearConsole();
+        
+        std::cout << "Professor Oak: Oak-ay" << player.name << "!, I am about to explain you about your upcoming grand adventure.\n";
+        waitForEnter();
+        std::cout << "Professor Oak: You see, becoming a Pokémon Master is no easy feat. It takes courage, wisdom, and a bit of luck!\n";
+        waitForEnter();
+        std::cout << "Professor Oak: Your mission, should you choose to accept it—and trust me, you really don’t have a choice—is to collect all the Pokémon Badges and conquer the Pokémon League.\n";
+        waitForEnter();
+        std::cout << "\n" << player.name << ": Wait... that sounds a lot like every other Pokémon game out there...\n";
+        waitForEnter();
+        std::cout << "Professor Oak: Shhh! Don't break the fourth wall, " << player.name << "! This is serious business!\n";
+        waitForEnter();
+        std::cout << "\nProfessor Oak: To achieve this, you’ll need to battle wild Pokémon, challenge gym leaders, and of course, keep your Pokémon healthy at the PokeCenter.\n";
+        waitForEnter();
+        std::cout << "Professor Oak: Along the way, you'll capture new Pokémon to strengthen your team. Just remember—there’s a limit to how many Pokémon you can carry, so choose wisely!\n";
+        waitForEnter();
+        std::cout << "\n" << player.name << ": Sounds like a walk in the park... right?\n";
+        waitForEnter();
+        std::cout << "Professor Oak: Hah! That’s what they all say! But beware, young Trainer, the path to victory is fraught with challenges. And if you lose a battle... well, let’s just say you'll be starting from square one.\n";
+        waitForEnter();
+        std::cout << "\nProfessor Oak: So, what do you say? Are you ready to become the next Pokémon Champion?\n";
+        waitForEnter();
+        std::cout << "\n" << player.name << ": Ready as I’ll ever be, Professor!\n";
+        waitForEnter();
+        std::cout << "\nProfessor Oak: That’s the spirit! Now, your journey begins...\n";
+        waitForEnter();
+        std::cout << "Professor Oak: But first... let's just pretend I didn't forget to set up the actual game loop... Ahem, onwards!\n";
+        waitForEnter();
     }
 };
 
@@ -167,7 +215,8 @@ int main()
     Player player("Ash", charmander);
 
     professor.greetPlayer(player); 
-    professor.offerPokemonChoices(player); 
+    professor.offerPokemonChoices(player);
+    professor.explainMainQuest(player);
 
     std::cout << "Professor Oak: " <<  player.chosenPokemon.name << " and you, " << player.name << ", are going to be the best of friends!\n";
     std::cout << "Professor Oak: Your journey begins now! Get ready to explore the vast world of Pokemon!\n";
