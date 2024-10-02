@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "../Header/Header.hpp"
 
 void waitForEnter()
 {
