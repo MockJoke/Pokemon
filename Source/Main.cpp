@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include "../Header/Player.hpp"
-// #include "../Header/Pokemon.hpp"
-// #include "../Header/PokemonChoice.hpp"
-// #include "../Header/PokemonType.hpp"
+#include "../Header/Pokemon.hpp"
+#include "../Header/PokemonChoice.hpp"
+#include "../Header/PokemonType.hpp"
 #include "../Header/Utility.hpp"
 
 class ProfessorOak

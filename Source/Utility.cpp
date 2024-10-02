@@ -1,6 +1,6 @@
-﻿#include "../Header/Utility.hpp"
-#include <iostream>
+﻿#include <iostream>
 #include <limits>
+#include "../Header/Utility.hpp"
 
 void Utility::clearConsole()
 {

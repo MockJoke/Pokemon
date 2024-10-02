@@ -1,5 +1,7 @@
 ﻿#include <string>
-#include "Pokemon.hpp"
+// #include "Pokemon.hpp"
+
+class Pokemon;
 
 class Player
 {

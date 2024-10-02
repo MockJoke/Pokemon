@@ -1,5 +1,7 @@
 ﻿#include <string>
-#include "PokemonType.hpp"
+// #include "PokemonType.hpp"
+
+enum class PokemonType;
 
 class Pokemon
 {
