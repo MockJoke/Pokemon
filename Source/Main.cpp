@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include "../Header/Header.hpp"
+#include "../Header/PokemonType.hpp"
+#include "../Header/PokemonChoice.hpp"
 
 void waitForEnter()
 {
@@ -15,23 +16,6 @@ void clearConsole()
     (void)system("clear");
 #endif
 }
-
-enum class PokemonChoice 
-{
-    CHARMANDER = 1,
-    BULBASAUR,
-    SQUIRTLE,
-    PIKACHU
-};
-
-enum class PokemonType
-{
-    FIRE,
-    GRASS,
-    WATER,
-    ELECTRIC,
-    NORMAL
-};
 
 class Pokemon
 {

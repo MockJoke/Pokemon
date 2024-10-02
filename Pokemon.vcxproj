@@ -136,7 +136,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ClInclude Include="Header\Header.hpp" />
+    <ClInclude Include="Header\PokemonChoice.hpp" />
+    <ClInclude Include="Header\PokemonType.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
