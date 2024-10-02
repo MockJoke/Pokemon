@@ -1,47 +1,10 @@
 #include <iostream>
 #include <string>
-#include "../Header/PokemonType.hpp"
-#include "../Header/PokemonChoice.hpp"
+#include "../Header/Player.hpp"
+// #include "../Header/Pokemon.hpp"
+// #include "../Header/PokemonChoice.hpp"
+// #include "../Header/PokemonType.hpp"
 #include "../Header/Utility.hpp"
-// #include "../Header/Player.hpp"
-
-class Pokemon
-{
-public:
-    std::string name;
-    PokemonType type;
-    int health;
-    
-    Pokemon()
-    {
-        name = "Unknown";
-        type = PokemonType::NORMAL;
-        health = 50;
-    }
-
-    Pokemon(std::string p_name, PokemonType p_type, int p_health)
-    {
-        name = p_name;
-        type = p_type;
-        health = p_health;
-    }
-
-    Pokemon(const Pokemon &other)
-    {
-        name = other.name;
-        type = other.type;
-        health = other.health;
-    }
-
-    ~Pokemon()
-    {
-    }
-    
-    void attack()
-    {
-        std::cout << name << "attacks with a powerful move!\n";
-    }
-};
 
 class ProfessorOak
 {
