@@ -133,10 +133,12 @@
 
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
   </ItemGroup>
 
   <ItemGroup>
+    <ClInclude Include="Header\Player.hpp" />
     <ClInclude Include="Header\PokemonChoice.hpp" />
     <ClInclude Include="Header\PokemonType.hpp" />
     <ClInclude Include="Header\Utility.hpp" />
