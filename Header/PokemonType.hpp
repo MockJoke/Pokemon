@@ -4,5 +4,7 @@
     GRASS,
     WATER,
     ELECTRIC,
+    BUG,
+    POISON,
     NORMAL
 };

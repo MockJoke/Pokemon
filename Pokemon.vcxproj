@@ -132,19 +132,23 @@
   </ItemDefinitionGroup>
 
   <ItemGroup>
+    <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\Pokemon.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
+    <ClCompile Include="Source\WildEncounterManager.cpp" />
   </ItemGroup>
 
   <ItemGroup>
+    <ClInclude Include="Header\Game.hpp" />
     <ClInclude Include="Header\Grass.hpp" />
     <ClInclude Include="Header\Player.hpp" />
     <ClInclude Include="Header\Pokemon.hpp" />
     <ClInclude Include="Header\PokemonChoice.hpp" />
     <ClInclude Include="Header\PokemonType.hpp" />
     <ClInclude Include="Header\Utility.hpp" />
+    <ClInclude Include="Header\WildEncounterManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
