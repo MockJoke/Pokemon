@@ -27,7 +27,7 @@ Pokemon::~Pokemon() { }
 
 void Pokemon::attack(Pokemon& target)
 {
-    int damage = 10;
+    int damage = attackPower;
     std::cout << name << " attacks " << target.name << " for " << damage << " damage!\\n";
     target.takeDamage(damage);
 }
@@ -45,4 +45,9 @@ void Pokemon::takeDamage(int damage)
 bool Pokemon::isFainted() const
 {
     return health <= 0;
+}
+
+void Pokemon::heal()
+{
+    health = maxHealth;
 }

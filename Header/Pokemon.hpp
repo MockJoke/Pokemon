@@ -9,7 +9,8 @@ public:
     PokemonType type;
     int health;
     int maxHealth;
-
+    int attackPower;
+    
     Pokemon();
     Pokemon(std::string p_name, PokemonType p_type, int p_health);
     Pokemon(const Pokemon& other);
@@ -19,4 +20,5 @@ public:
     void attack(Pokemon& target);
     void takeDamage(int damage);
     bool isFainted() const;
+    void heal();
 };
