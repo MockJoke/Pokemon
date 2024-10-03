@@ -144,6 +144,7 @@
 
   <ItemGroup>
     <ClInclude Include="Header\BattleManager.hpp" />
+    <ClInclude Include="Header\BattleState.hpp" />
     <ClInclude Include="Header\Game.hpp" />
     <ClInclude Include="Header\Grass.hpp" />
     <ClInclude Include="Header\Player.hpp" />
