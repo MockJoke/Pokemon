@@ -1,9 +1,11 @@
 ﻿#include<string>
 #include<vector>
 
+class Pokemon;
+
 struct Grass
 {
     std::string environmentType;
-    std::vector<WildPokemon> wildPokemonList;
+    std::vector<Pokemon> wildPokemonList;
     int encounterRate;
 };

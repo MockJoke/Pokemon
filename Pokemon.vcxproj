@@ -136,6 +136,7 @@
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\Pokemon.cpp" />
+    <ClCompile Include="Source\ProfessorOak.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
     <ClCompile Include="Source\WildEncounterManager.cpp" />
   </ItemGroup>
@@ -147,6 +148,7 @@
     <ClInclude Include="Header\Pokemon.hpp" />
     <ClInclude Include="Header\PokemonChoice.hpp" />
     <ClInclude Include="Header\PokemonType.hpp" />
+    <ClInclude Include="Header\ProfessorOak.hpp" />
     <ClInclude Include="Header\Utility.hpp" />
     <ClInclude Include="Header\WildEncounterManager.hpp" />
   </ItemGroup>
