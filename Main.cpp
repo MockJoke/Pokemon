@@ -9,14 +9,14 @@
 
 int main()
 {
-    ProfessorOak professor("Professor Oak"); 
-    Player player;
+    N_Character::ProfessorOak professor("Professor Oak"); 
+    N_Player::Player player;
 
     professor.greetPlayer(player); 
     professor.offerPokemonChoices(player);
     professor.explainMainQuest(player);
 
-    Game game;
+    N_Main::Game game;
     game.gameLoop(player);
 
     return 0;

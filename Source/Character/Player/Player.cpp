@@ -4,37 +4,40 @@
 #include "../../../Header/Pokemon/PokemonType.hpp"
 #include "../../../Header/Utility/Utility.hpp"
 
-Player::Player()
+namespace N_Player
 {
-    name = "Trainer";
-    chosenPokemon = Pokemon();
-}
-
-Player::Player(std::string p_name, Pokemon p_chosenPokemon)
-{
-    name = p_name;
-    chosenPokemon = p_chosenPokemon;
-}
-
-void Player::choosePokemon(int choice)
-{
-    switch ((PokemonChoice)choice)
+    Player::Player()
     {
-    case PokemonChoice::CHARMANDER:
-        chosenPokemon = Pokemon("Charmander", PokemonType::FIRE, 100, 10);
-        break;
-    case PokemonChoice::BULBASAUR:
-        chosenPokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 100, 8);
-        break;
-    case PokemonChoice::SQUIRTLE:
-        chosenPokemon = Pokemon("Squirtle", PokemonType::WATER, 100, 9);
-        break;
-    default:
-        chosenPokemon = Pokemon("Pikachu", PokemonType::ELECTRIC, 100, 12);
-        break;
+        name = "Trainer";
+        chosenPokemon = N_Pokemon::Pokemon();
     }
-    
-    std::cout << "Player " << name << " chose " << chosenPokemon.name << "!\n";
 
-    Utility::waitForEnter();
+    Player::Player(std::string p_name, N_Pokemon::Pokemon p_chosenPokemon)
+    {
+        name = p_name;
+        chosenPokemon = p_chosenPokemon;
+    }
+
+    void Player::choosePokemon(int choice)
+    {
+        switch ((N_Pokemon::PokemonChoice)choice)
+        {
+        case N_Pokemon::PokemonChoice::CHARMANDER:
+            chosenPokemon = N_Pokemon::Pokemon("Charmander", N_Pokemon::PokemonType::FIRE, 100, 10);
+            break;
+        case N_Pokemon::PokemonChoice::BULBASAUR:
+            chosenPokemon = N_Pokemon::Pokemon("Bulbasaur", N_Pokemon::PokemonType::GRASS, 100, 8);
+            break;
+        case N_Pokemon::PokemonChoice::SQUIRTLE:
+            chosenPokemon = N_Pokemon::Pokemon("Squirtle", N_Pokemon::PokemonType::WATER, 100, 9);
+            break;
+        default:
+            chosenPokemon = N_Pokemon::Pokemon("Pikachu", N_Pokemon::PokemonType::ELECTRIC, 100, 12);
+            break;
+        }
+        
+        std::cout << "Player " << name << " chose " << chosenPokemon.name << "!\n";
+
+        N_Utility::Utility::waitForEnter();
+    }
 }

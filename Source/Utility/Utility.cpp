@@ -2,21 +2,24 @@
 #include <limits>
 #include "../../Header/Utility/Utility.hpp"
 
-void Utility::clearConsole()
+namespace N_Utility
 {
-#ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-}
+    void Utility::clearConsole()
+    {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    }
 
-void Utility :: waitForEnter()
-{
-    std::cin.get();
-}
+    void Utility :: waitForEnter()
+    {
+        std::cin.get();
+    }
 
-void Utility :: clearInputBuffer()
-{
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    void Utility :: clearInputBuffer()
+    {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 }

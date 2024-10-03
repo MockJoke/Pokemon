@@ -4,13 +4,16 @@
 #include "../../Header/Pokemon/Pokemon.hpp"
 #include "../../Header/Pokemon/Grass.hpp"
 
-WildEncounterManager::WildEncounterManager()
+namespace N_Battle
 {
-    srand(time(0));
-}
+    WildEncounterManager::WildEncounterManager()
+    {
+        srand(time(0));
+    }
 
-Pokemon WildEncounterManager::getRandomPokemonFromGrass(const Grass& grass)
-{
-    int randomIndex = rand() % grass.wildPokemonList.size();
-    return grass.wildPokemonList[randomIndex];
+    Pokemon WildEncounterManager::getRandomPokemonFromGrass(const Grass& grass)
+    {
+        int randomIndex = rand() % grass.wildPokemonList.size();
+        return grass.wildPokemonList[randomIndex];
+    }
 }

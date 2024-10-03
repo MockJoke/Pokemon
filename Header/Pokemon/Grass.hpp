@@ -2,11 +2,14 @@
 #include<string>
 #include<vector>
 
-class Pokemon;
-
-struct Grass
+namespace N_Pokemon
 {
-    std::string environmentType;
-    std::vector<Pokemon> wildPokemonList;
-    int encounterRate;
-};
+    class Pokemon;
+    
+    struct Grass
+    {
+        std::string environmentType;
+        std::vector<Pokemon> wildPokemonList;
+        int encounterRate;
+    };
+}
