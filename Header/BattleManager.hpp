@@ -1,5 +1,4 @@
-﻿// #include "Pokemon.hpp"
-// #include "Player.hpp"
+﻿#pragma once
 #include "BattleState.hpp"
 
 class Player;
@@ -13,7 +12,7 @@ public:
 private:
     BattleState battleState;
     
-    void battle(Pokemon& playerPokemon, Pokemon& wildPokemon);
+    void battle();
     void handleBattleOutcome();
     void updateBattleState();
 };

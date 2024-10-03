@@ -1,4 +1,5 @@
-﻿#include "Grass.hpp"
+﻿#pragma once
+#include "Grass.hpp"
 
 class Player;
 
@@ -11,4 +12,5 @@ public:
     Game();
     void gameLoop(Player &player);
     void battle(Pokemon& playerPokemon, Pokemon& wildPokemon);
+    void visitPokeCenter(Player& player);
 };

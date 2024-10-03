@@ -1,4 +1,5 @@
-﻿#include <string>
+﻿#pragma once
+#include <string>
 
 enum class PokemonType;
 
@@ -12,7 +13,7 @@ public:
     int attackPower;
     
     Pokemon();
-    Pokemon(std::string p_name, PokemonType p_type, int p_health);
+    Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attackPower);
     Pokemon(const Pokemon& other);
 
     ~Pokemon();

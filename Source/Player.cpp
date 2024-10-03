@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#pragma once
+#include <iostream>
 #include "../Header/Player.hpp"
 #include "../Header/PokemonChoice.hpp"
 #include "../Header/PokemonType.hpp"

@@ -155,6 +155,15 @@
     <ClInclude Include="Header\Utility.hpp" />
     <ClInclude Include="Header\WildEncounterManager.hpp" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Header\Battle\" />
+    <Folder Include="Header\Character\" />
+    <Folder Include="Header\Main\" />
+    <Folder Include="Source\Battle\" />
+    <Folder Include="Source\Character\" />
+    <Folder Include="Source\Main\" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

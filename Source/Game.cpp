@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#pragma once
+#include <iostream>
 #include "../Header/Game.hpp"
 #include "../Header/Player.hpp"
 #include "../Header/PokemonType.hpp"
@@ -22,6 +23,8 @@ Game::Game()
 void Game::gameLoop(Player& player)
 {
     BattleManager battleManager;
+    WildEncounterManager encounterManager;
+    Pokemon wildPokemon;
     
     int choice;
     bool keepPlaying = true;
@@ -45,8 +48,7 @@ void Game::gameLoop(Player& player)
         {
         case 1:
             {
-                WildEncounterManager encounterManager;
-                Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+                wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
                 battleManager.startBattle(player, wildPokemon);
                 break;
             }
@@ -95,26 +97,18 @@ void Game::gameLoop(Player& player)
     std::cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
 }
 
-void Game::battle(Pokemon& playerPokemon, Pokemon& wildPokemon)
+void Game::visitPokeCenter(Player& player)
 {
-    std::cout << "A wild " << wildPokemon.name << " appeared!\\n";
-
-    while (!playerPokemon.isFainted() && !wildPokemon.isFainted())
+    if (player.chosenPokemon.health == player.chosenPokemon.maxHealth)
     {
-        playerPokemon.attack(wildPokemon);
-
-        if (!wildPokemon.isFainted())
-        {
-            wildPokemon.attack(playerPokemon);
-        }
-    }
-
-    if (playerPokemon.isFainted())
-    {
-        std::cout << playerPokemon.name << " has fainted! You lose the battle.\\n";
+        std::cout << "Your Pokémon is already at full health!\n";
     }
     else
     {
-        std::cout << "You defeated the wild " << wildPokemon.name << "!\\n";
+        std::cout << "You head to the PokeCenter.\n";
+        std::cout << "Healing your Pokémon...\n";
+        Utility::waitForEnter(); // Simulate a short pause for the healing process
+        player.chosenPokemon.heal(); // Heal the player's Pokémon
+        std::cout << player.chosenPokemon.name << "'s health is fully restored!\n";
     }
 }
