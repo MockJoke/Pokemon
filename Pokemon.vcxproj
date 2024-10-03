@@ -650,6 +650,10 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Source\Pokemon\Pokemons\Caterpie.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Pidgey.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Pikachu.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Zubat.cpp" />
     <ClCompile Include="Source\Utility\Utility.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -736,6 +740,10 @@
     <ClInclude Include="Header\Pokemon\Grass.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemon.hpp" />
     <ClInclude Include="Header\Pokemon\PokemonChoice.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Caterpie.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Pidgey.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Pikachu.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Zubat.hpp" />
     <ClInclude Include="Header\Pokemon\PokemonType.hpp" />
     <ClInclude Include="Header\Utility\Utility.hpp" />
   </ItemGroup>
