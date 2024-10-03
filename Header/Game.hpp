@@ -10,4 +10,5 @@ private:
 public:
     Game();
     void gameLoop(Player &player);
+    void battle(Pokemon& playerPokemon, Pokemon& wildPokemon);
 };

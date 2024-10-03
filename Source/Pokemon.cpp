@@ -16,7 +16,7 @@ Pokemon::Pokemon(std::string p_name, PokemonType p_type, int p_health)
     health = p_health;
 }
 
-Pokemon::Pokemon(const Pokemon &other)
+Pokemon::Pokemon(const Pokemon& other)
 {
     name = other.name;
     type = other.type;
@@ -25,7 +25,24 @@ Pokemon::Pokemon(const Pokemon &other)
 
 Pokemon::~Pokemon() { }
 
-void Pokemon::attack()
+void Pokemon::attack(Pokemon& target)
 {
-    std::cout << name << " attacks with a powerful move!\n";
+    int damage = 10;
+    std::cout << name << " attacks " << target.name << " for " << damage << " damage!\\n";
+    target.takeDamage(damage);
+}
+
+void Pokemon::takeDamage(int damage)
+{
+    health -= damage;
+    
+    if (health < 0)
+    {
+        health = 0;
+    }
+}
+
+bool Pokemon::isFainted() const
+{
+    return health <= 0;
 }
