@@ -1,7 +1,6 @@
-﻿#pragma once
-#include <iostream>
-#include "../Header/Pokemon.hpp"
-#include "../Header/PokemonType.hpp"
+﻿#include <iostream>
+#include "../../Header/Pokemon/Pokemon.hpp"
+#include "../../Header/Pokemon/PokemonType.hpp"
 
 Pokemon::Pokemon()
 {

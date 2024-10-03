@@ -1,20 +1,19 @@
-﻿#pragma once
-#include <iostream>
-#include "../Header/Game.hpp"
-#include "../Header/Player.hpp"
-#include "../Header/PokemonType.hpp"
-#include "../Header/Utility.hpp"
-#include "../Header/WildEncounterManager.hpp"
-#include "../Header/BattleManager.hpp"
+﻿#include <iostream>
+#include "../../Header/Main/Game.hpp"
+#include "../../Header/Character/Player/Player.hpp"
+#include "../../Header/Pokemon/PokemonType.hpp"
+#include "../../Header/Utility/Utility.hpp"
+#include "../../Header/Battle/WildEncounterManager.hpp"
+#include "../../Header/Battle/BattleManager.hpp"
 
 Game::Game()
 {
     forestGrass = {
         "Forest",
         {
-            Pokemon("Pidgey", PokemonType::NORMAL, 40),
-            Pokemon("Caterpie", PokemonType::BUG, 35),
-            Pokemon("Zubat", PokemonType::POISON, 30)
+            Pokemon("Pidgey", PokemonType::NORMAL, 40, 7),
+            Pokemon("Caterpie", PokemonType::BUG, 35, 5),
+            Pokemon("Zubat", PokemonType::POISON, 30, 8)
         },
         70
     };

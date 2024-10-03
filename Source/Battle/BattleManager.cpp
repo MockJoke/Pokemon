@@ -1,8 +1,7 @@
-﻿#pragma once
-#include <iostream>
-#include "../Header/BattleManager.hpp"
-#include "../Header/Player.hpp"
-#include "../Header/Utility.hpp"
+﻿#include <iostream>
+#include "../../Header/Battle/BattleManager.hpp"
+#include "../../Header/Character/Player/Player.hpp"
+#include "../../Header/Utility/Utility.hpp"
 
 void BattleManager::startBattle(Player& player, Pokemon& wildPokemon)
 {

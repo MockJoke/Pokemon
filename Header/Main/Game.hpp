@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Grass.hpp"
+#include "../Pokemon/Grass.hpp"
 
 class Player;
 

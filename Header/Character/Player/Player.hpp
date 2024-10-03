@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <string>
-#include "../Header/Pokemon.hpp"
+#include "../../Pokemon/Pokemon.hpp"
 
 class Player
 {

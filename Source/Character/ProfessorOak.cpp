@@ -1,7 +1,7 @@
 ﻿#include <iostream>
-#include "../Header/ProfessorOak.hpp"
-#include "../Header/Player.hpp"
-#include "../Header/Utility.hpp"
+#include "../../Header/Character/ProfessorOak.hpp"
+#include "../../Header/Character/Player/Player.hpp"
+#include "../../Header/Utility/Utility.hpp"
 
 ProfessorOak::ProfessorOak(std::string p_name)
 {
