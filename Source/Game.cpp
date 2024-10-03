@@ -4,6 +4,7 @@
 #include "../Header/PokemonType.hpp"
 #include "../Header/Utility.hpp"
 #include "../Header/WildEncounterManager.hpp"
+#include "../Header/BattleManager.hpp"
 
 Game::Game()
 {
@@ -20,6 +21,8 @@ Game::Game()
 
 void Game::gameLoop(Player& player)
 {
+    BattleManager battleManager;
+    
     int choice;
     bool keepPlaying = true;
 
@@ -43,8 +46,8 @@ void Game::gameLoop(Player& player)
         case 1:
             {
                 WildEncounterManager encounterManager;
-                Pokemon encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
-                std::cout << "A wild " << encounteredPokemon.name << " appeared!\n";
+                Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+                battleManager.startBattle(player, wildPokemon);
                 break;
             }
         case 2:

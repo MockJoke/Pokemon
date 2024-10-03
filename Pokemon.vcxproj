@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
 
   <ItemGroup>
+    <ClCompile Include="Source\BattleManager.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Player.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ClInclude Include="Header\BattleManager.hpp" />
     <ClInclude Include="Header\Game.hpp" />
     <ClInclude Include="Header\Grass.hpp" />
     <ClInclude Include="Header\Player.hpp" />
