@@ -1,10 +1,12 @@
 ﻿#include <iostream>
 #include "../../Header/Main/Game.hpp"
 #include "../../Header/Character/Player/Player.hpp"
-#include "../../Header/Pokemon/PokemonType.hpp"
 #include "../../Header/Utility/Utility.hpp"
 #include "../../Header/Battle/WildEncounterManager.hpp"
 #include "../../Header/Battle/BattleManager.hpp"
+#include "../../Header/Pokemon/Pokemons/Caterpie.hpp"
+#include "../../Header/Pokemon/Pokemons/Pidgey.hpp"
+#include "../../Header/Pokemon/Pokemons/Zubat.hpp"
 
 namespace N_Main
 {
@@ -13,15 +15,13 @@ namespace N_Main
         forestGrass = {
             "Forest",
             {
-                N_Pokemon::Pokemon("Pidgey", N_Pokemon::PokemonType::NORMAL, 40, 7),
-                N_Pokemon::Pokemon("Caterpie", N_Pokemon::PokemonType::BUG, 35, 5),
-                N_Pokemon::Pokemon("Zubat", N_Pokemon::PokemonType::POISON, 30, 8)
+                N_Pokemon::N_Pokemons::Pidgey(), N_Pokemon::N_Pokemons::Caterpie(), N_Pokemon::N_Pokemons::Zubat()
             },
             70
         };
     }
 
-    void Game::gameLoop(Player& player)
+    void Game::gameLoop(N_Character::N_Player::Player& player)
     {
         N_Battle::BattleManager battleManager;
         N_Battle::WildEncounterManager encounterManager;
@@ -98,7 +98,7 @@ namespace N_Main
         std::cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
     }
 
-    void Game::visitPokeCenter(Player& player)
+    void Game::visitPokeCenter(N_Character::N_Player::Player& player)
     {
         if (player.chosenPokemon.health == player.chosenPokemon.maxHealth)
         {

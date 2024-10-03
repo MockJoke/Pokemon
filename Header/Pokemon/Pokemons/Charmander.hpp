@@ -5,13 +5,13 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        class Pidgey : public Pokemon
+        class Charmander : public Pokemon
         {
         private:
-            void wingAttack(Pokemon& target);
-            
+            void flameThrower(Pokemon& target);
+    
         public:
-            Pidgey();
+            Charmander();
         };
     }
 }

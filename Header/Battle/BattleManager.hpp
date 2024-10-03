@@ -1,15 +1,15 @@
 ﻿#pragma once
 #include "BattleState.hpp"
+#include "../Character/Player/Player.hpp"
 
 namespace N_Battle
 {
-    class Player;
     class Pokemon;
     
     class BattleManager
     {
     public:
-        void startBattle(Player& player, Pokemon& wildPokemon);
+        void startBattle(N_Character::N_Player::Player& player, N_Pokemon::Pokemon& wildPokemon);
         
     private:
         BattleState battleState;

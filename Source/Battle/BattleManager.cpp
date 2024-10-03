@@ -5,7 +5,7 @@
 
 namespace N_Battle
 {
-    void BattleManager::startBattle(Player& player, Pokemon& wildPokemon)
+    void BattleManager::startBattle(N_Character::N_Player::Player& player, N_Pokemon::Pokemon& wildPokemon)
     {
         battleState.playerPokemon = player.chosenPokemon;
         battleState.wildPokemon = wildPokemon;

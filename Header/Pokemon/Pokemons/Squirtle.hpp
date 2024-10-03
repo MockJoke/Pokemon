@@ -5,13 +5,13 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        class Pidgey : public Pokemon
+        class Squirtle : public Pokemon
         {
         private:
-            void wingAttack(Pokemon& target);
-            
+            void waterSplash(Pokemon& target);
+    
         public:
-            Pidgey();
+            Squirtle();
         };
     }
 }
