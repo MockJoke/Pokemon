@@ -10,10 +10,10 @@ namespace N_Character
         {
         public:
             std::string name;
-            N_Pokemon::Pokemon chosenPokemon;
+            N_Pokemon::Pokemon* chosenPokemon;
 
             Player();
-            Player(std::string p_name, N_Pokemon::Pokemon p_chosenPokemon);
+            Player(std::string p_name, N_Pokemon::Pokemon* p_chosenPokemon);
 
             void choosePokemon(int choice);
         };

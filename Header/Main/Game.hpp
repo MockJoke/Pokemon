@@ -15,7 +15,7 @@ namespace N_Main
         
     public:
         Game();
-        void gameLoop(N_Character::N_Player::Player &player);
-        void visitPokeCenter(N_Character::N_Player::Player& player);
+        void gameLoop(N_Character::N_Player::Player* player);
+        void visitPokeCenter(N_Character::N_Player::Player* player);
     };
 }

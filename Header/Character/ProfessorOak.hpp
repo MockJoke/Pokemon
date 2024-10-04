@@ -14,8 +14,8 @@ namespace N_Character
         std::string name;
 
         ProfessorOak(std::string p_name);
-        void greetPlayer(N_Player::Player &player);
-        void offerPokemonChoices(N_Player::Player &player);
-        void explainMainQuest(N_Player::Player &player);
+        void greetPlayer(N_Player::Player* player);
+        void offerPokemonChoices(N_Player::Player* player);
+        void explainMainQuest(N_Player::Player* player);
     };
 }

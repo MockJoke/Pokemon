@@ -22,21 +22,21 @@ namespace N_Pokemon
         attackPower = p_attackPower;
     }
 
-    Pokemon::Pokemon(const Pokemon& other)
+    Pokemon::Pokemon(const Pokemon* other)
     {
-        name = other.name;
-        type = other.type;
-        health = other.health;
-        maxHealth = other.maxHealth;
-        attackPower = other.attackPower;
+        name = other->name;
+        type = other->type;
+        health = other->health;
+        maxHealth = other->maxHealth;
+        attackPower = other->attackPower;
     }
 
     Pokemon::~Pokemon() { }
 
-    void Pokemon::attack(Pokemon& target)
+    void Pokemon::attack(Pokemon* target)
     {
-        std::cout << name << " attacks " << target.name << " for " << attackPower << " damage!\\n";
-        target.takeDamage(attackPower);
+        std::cout << name << " attacks " << target->name << " for " << attackPower << " damage!\\n";
+        target->takeDamage(attackPower);
     }
 
     void Pokemon::takeDamage(int damage)

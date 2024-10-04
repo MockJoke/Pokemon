@@ -8,10 +8,10 @@ namespace N_Pokemon
     {
         Pikachu::Pikachu() : Pokemon("Pikachu", PokemonType::ELECTRIC, 100, 20) {}
     
-        void Pikachu::thunderShock(Pokemon& target)
+        void Pikachu::thunderShock(Pokemon* target)
         {
-            std::cout << name << " uses Thunder Shock on " << target.name << "!\n";
-            target.takeDamage(20);
+            std::cout << name << " uses Thunder Shock on " << target->name << "!\n";
+            target->takeDamage(20);
         }
     }
 }
