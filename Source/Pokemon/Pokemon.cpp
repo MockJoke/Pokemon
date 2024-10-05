@@ -58,4 +58,59 @@ namespace N_Pokemon
     {
         health = maxHealth;
     }
+
+    void Pokemon::selectAndUseMove(Pokemon* target)
+    {
+        printAvailableMoves();
+
+        int choice = selectMove();
+        Move selectedMove = moves[choice-1];
+    
+        useMove(selectedMove, target);
+    }
+
+    void Pokemon::printAvailableMoves()
+    {
+        std::cout << name << "'s available moves:\n";
+        
+        for (size_t i = 0; i < moves.size(); ++i)
+        {
+            std::cout << i + 1 << ": " << moves[i].name << " (Power: " << moves[i].power << ")\n";
+        }
+    }
+
+    int Pokemon::selectMove()
+    {
+        int choice;
+        std::cout << "Choose a move: ";
+        std::cin >> choice;
+
+        while (choice < 1 || choice > static_cast<int>(moves.size()))
+        {
+            std::cout << "Invalid choice. Try again: ";
+            std::cin >> choice;
+        }
+
+        return choice;
+    }
+
+    void Pokemon::useMove(Move selectedMove, Pokemon* target)
+    {
+        std::cout << name << " used " << selectedMove.name << "!\n";
+        attack(selectedMove, target);
+    
+        N_Utility::Utility::waitForEnter();
+
+        std::cout << "...\n"; 
+        N_Utility::Utility::waitForEnter();
+    
+        if (target->isFainted())
+        {
+            std::cout << target->name << " fainted!\n";
+        }
+        else
+        {
+            std::cout << target->name << " has " << target->health << " HP left.\n";
+        }
+    }
 }

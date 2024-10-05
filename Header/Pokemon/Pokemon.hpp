@@ -1,18 +1,24 @@
 ﻿#pragma once
 #include <string>
+#include <vector>
 
 namespace N_Pokemon
 {
     enum class PokemonType;
+    struct Move;
 
     class Pokemon
     {
+    protected:
+        void selectAndUseMove(Pokemon* target);
+        
     public:
         std::string name;
         PokemonType type;
         int health;
         int maxHealth;
         int attackPower;
+        std::vector<Move> moves;
         
         Pokemon();
         Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attackPower);
