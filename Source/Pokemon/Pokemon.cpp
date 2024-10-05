@@ -158,5 +158,8 @@ namespace N_Pokemon
         }
     }
 
-    void Pokemon::clearEffect() { appliedEffect = nullptr; }
+    void Pokemon::clearEffect()
+    {
+        appliedEffect = nullptr;
+    }
 }
