@@ -740,6 +740,7 @@
     <ClInclude Include="Header\Main\Game.hpp" />
     <ClInclude Include="Header\Pokemon\Grass.hpp" />
     <ClInclude Include="Header\Pokemon\Move.hpp" />
+    <ClInclude Include="Header\Pokemon\MoveName.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemon.hpp" />
     <ClInclude Include="Header\Pokemon\PokemonChoice.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemons\Bulbasaur.hpp" />

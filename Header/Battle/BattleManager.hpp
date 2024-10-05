@@ -10,9 +10,10 @@ namespace N_Battle
     {
     public:
         void startBattle(N_Character::N_Player::Player* player, N_Pokemon::Pokemon* wildPokemon);
+        static void stopBattle();
         
     private:
-        BattleState battleState;
+        static BattleState battleState;
         
         void battle();
         void handleBattleOutcome();

@@ -2,6 +2,10 @@
 #include "../../../Header/Character/Player/Player.hpp"
 #include "../../../Header/Pokemon/PokemonChoice.hpp"
 #include "../../../Header/Pokemon/PokemonType.hpp"
+#include "../../../Header/Pokemon/Pokemons/Bulbasaur.hpp"
+#include "../../../Header/Pokemon/Pokemons/Charmander.hpp"
+#include "../../../Header/Pokemon/Pokemons/Pikachu.hpp"
+#include "../../../Header/Pokemon/Pokemons/Squirtle.hpp"
 #include "../../../Header/Utility/Utility.hpp"
 
 namespace N_Character
@@ -11,13 +15,11 @@ namespace N_Character
         Player::Player()
         {
             name = "Trainer";
-            chosenPokemon = new N_Pokemon::Pokemon();
         }
 
-        Player::Player(std::string p_name, N_Pokemon::Pokemon* p_chosenPokemon)
+        Player::Player(std::string p_name)
         {
             name = p_name;
-            chosenPokemon = p_chosenPokemon;
         }
 
         void Player::choosePokemon(int choice)
@@ -25,16 +27,16 @@ namespace N_Character
             switch ((N_Pokemon::PokemonChoice)choice)
             {
             case N_Pokemon::PokemonChoice::CHARMANDER:
-                chosenPokemon = new N_Pokemon::Pokemon("Charmander", N_Pokemon::PokemonType::FIRE, 100, 10);
+                chosenPokemon = new N_Pokemon::N_Pokemons::Charmander();
                 break;
             case N_Pokemon::PokemonChoice::BULBASAUR:
-                chosenPokemon = new N_Pokemon::Pokemon("Bulbasaur", N_Pokemon::PokemonType::GRASS, 100, 8);
+                chosenPokemon = new N_Pokemon::N_Pokemons::Bulbasaur();
                 break;
             case N_Pokemon::PokemonChoice::SQUIRTLE:
-                chosenPokemon = new N_Pokemon::Pokemon("Squirtle", N_Pokemon::PokemonType::WATER, 100, 9);
+                chosenPokemon = new N_Pokemon::N_Pokemons::Squirtle();
                 break;
             default:
-                chosenPokemon = new N_Pokemon::Pokemon("Pikachu", N_Pokemon::PokemonType::ELECTRIC, 100, 12);
+                chosenPokemon = new N_Pokemon::N_Pokemons::Pikachu();
                 break;
             }
         

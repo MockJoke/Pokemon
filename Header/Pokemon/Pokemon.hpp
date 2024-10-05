@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <string>
 #include <vector>
+#include "Move.hpp"
 
 namespace N_Pokemon
 {
@@ -10,7 +11,9 @@ namespace N_Pokemon
     class Pokemon
     {
     protected:
-        void selectAndUseMove(Pokemon* target);
+        void printAvailableMoves();
+        int selectMove();
+        void useMove(Move selectedMove, Pokemon* target);
         
     public:
         std::string name;
@@ -21,14 +24,16 @@ namespace N_Pokemon
         std::vector<Move> moves;
         
         Pokemon();
-        Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attackPower);
+        Pokemon(std::string p_name, PokemonType p_type, int p_health, std::vector<Move>);
         Pokemon(const Pokemon* other);
 
         ~Pokemon();
 
-        virtual void attack(Pokemon* target) = 0;
+        virtual void attack(Move selectedMove, Pokemon* target) = 0;
         void takeDamage(int damage);
         bool isFainted() const;
         void heal();
+        void selectAndUseMove(Pokemon* target);
+        void reduceAttackPower(int reduced_damage);
     };
 }

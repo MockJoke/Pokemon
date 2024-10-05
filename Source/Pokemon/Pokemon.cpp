@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "../../Header/Pokemon/Pokemon.hpp"
 #include "../../Header/Pokemon/PokemonType.hpp"
+#include "../../Header/Utility/Utility.hpp"
 
 namespace N_Pokemon
 {
@@ -13,13 +14,13 @@ namespace N_Pokemon
         attackPower = 10;
     }
 
-    Pokemon::Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attackPower)
+    Pokemon::Pokemon(std::string p_name, PokemonType p_type, int p_health, std::vector<Move> p_moves)
     {
         name = p_name;
         type = p_type;
         health = p_health;
         maxHealth = p_health;
-        attackPower = p_attackPower;
+        moves = p_moves;
     }
 
     Pokemon::Pokemon(const Pokemon* other)
@@ -28,15 +29,14 @@ namespace N_Pokemon
         type = other->type;
         health = other->health;
         maxHealth = other->maxHealth;
-        attackPower = other->attackPower;
+        moves = other->moves;
     }
 
     Pokemon::~Pokemon() { }
 
-    void Pokemon::attack(Pokemon* target)
+    void Pokemon::attack(Move selectedMove, Pokemon* target)
     {
-        std::cout << name << " attacks " << target->name << " for " << attackPower << " damage!\\n";
-        target->takeDamage(attackPower);
+        target->takeDamage(selectedMove.power);
     }
 
     void Pokemon::takeDamage(int damage)
