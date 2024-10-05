@@ -754,6 +754,7 @@
     <ClInclude Include="Header\Pokemon\PokemonType.hpp" />
     <ClInclude Include="Header\Pokemon\StatusEffects\IStatusEffect.hpp" />
     <ClInclude Include="Header\Pokemon\StatusEffects\ParalyzedEffect.hpp" />
+    <ClInclude Include="Header\Pokemon\StatusEffects\StatusEffectType.hpp" />
     <ClInclude Include="Header\Utility\Utility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
