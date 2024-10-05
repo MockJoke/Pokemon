@@ -739,6 +739,7 @@
     <ClInclude Include="Header\Character\ProfessorOak.hpp" />
     <ClInclude Include="Header\Main\Game.hpp" />
     <ClInclude Include="Header\Pokemon\Grass.hpp" />
+    <ClInclude Include="Header\Pokemon\IStatusEffect.hpp" />
     <ClInclude Include="Header\Pokemon\Move.hpp" />
     <ClInclude Include="Header\Pokemon\MoveName.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemon.hpp" />
