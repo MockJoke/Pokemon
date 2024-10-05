@@ -12,7 +12,8 @@ namespace N_Main
 {
     Game::Game()
     {
-        forestGrass = {
+        forestGrass =
+            {
             "Forest",
             {
                 new N_Pokemon::N_Pokemons::Pidgey(), new N_Pokemon::N_Pokemons::Caterpie(), new N_Pokemon::N_Pokemons::Zubat()
