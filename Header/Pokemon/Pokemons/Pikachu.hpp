@@ -12,6 +12,7 @@ namespace N_Pokemon
             
         public:
             Pikachu();
+            void attack(Pokemon* target) override;
         };
     }
 }

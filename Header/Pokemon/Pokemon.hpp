@@ -20,7 +20,7 @@ namespace N_Pokemon
 
         ~Pokemon();
 
-        void attack(Pokemon* target);
+        virtual void attack(Pokemon* target) = 0;
         void takeDamage(int damage);
         bool isFainted() const;
         void heal();
