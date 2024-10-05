@@ -113,4 +113,17 @@ namespace N_Pokemon
             std::cout << target->name << " has " << target->health << " HP left.\n";
         }
     }
+
+    void Pokemon::reduceAttackPower(int reduced_damage)
+    {
+        for (int i=0; i<moves.size(); i++)
+        {
+            moves[i].power -= reduced_damage;
+            
+            if(moves[i].power < 0)
+            {
+                moves[i].power = 0;
+            }
+        }
+    }
 }
