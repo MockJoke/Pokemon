@@ -21,11 +21,15 @@ namespace N_Main
         };
     }
 
+    Game::~Game()
+    {
+        delete(wildPokemon);
+    }
+
     void Game::gameLoop(N_Character::N_Player::Player* player)
     {
         N_Battle::BattleManager* battleManager = new N_Battle::BattleManager();
         N_Battle::WildEncounterManager* encounterManager = new N_Battle::WildEncounterManager();
-        N_Pokemon::Pokemon* wildPokemon = new N_Pokemon::Pokemon();
         
         int choice;
         bool keepPlaying = true;
@@ -94,6 +98,9 @@ namespace N_Main
         }
 
         std::cout << "Goodbye, " << player->name << "! Thanks for playing!\n";
+
+        delete(encounterManager);
+        delete(battleManager);
     }
 
     void Game::visitPokeCenter(N_Character::N_Player::Player* player)
