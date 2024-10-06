@@ -13,7 +13,7 @@ namespace N_Character
             N_Pokemon::Pokemon* chosenPokemon;
 
             Player();
-            Player(std::string p_name, N_Pokemon::Pokemon* p_chosenPokemon);
+            Player(std::string p_name);
 
             void choosePokemon(int choice);
         };

@@ -1,17 +1,29 @@
-﻿#include "../../../Header/Pokemon/Pokemons/Charmander.hpp"
+﻿#include <iostream>
+#include "../../../Header/Pokemon/Pokemons/Charmander.hpp"
 #include "../../../Header/Pokemon/PokemonType.hpp"
-#include <iostream>
+#include "../../../Header/Utility/Utility.hpp"
 
 namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Charmander::Charmander() : Pokemon("Charmander", PokemonType::FIRE, 100, 35) {}
-    
-        void Charmander::flameThrower(Pokemon* target)
+        Charmander::Charmander() : Pokemon("Charmander", PokemonType::FIRE, 100, {
+            Move("EMBER", 20),
+            Move("SCRATCH", 15),
+            Move("BLAZING CHARGE", 70)
+        }) {}
+
+        void Charmander::attack(Move selectedMove, Pokemon* target)
         {
-            std::cout << name << " uses Flame Thrower on " << target->name << "!\n";
-            target->takeDamage(20);
+            Pokemon::attack(selectedMove, target);
+
+            if(selectedMove.name == "BLAZING CHARGE")
+            {
+                // Recoil effect: Charmander takes recoil damage
+                this->takeDamage(10); // Fixed recoil damage
+                std::cout << name << " takes 10 recoil damage from the Blazing Charge!\n";
+                N_Utility::Utility::waitForEnter();
+            }
         }
     }
 }

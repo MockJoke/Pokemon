@@ -5,6 +5,8 @@
 
 namespace N_Battle
 {
+    BattleState BattleManager::battleState;
+    
     void BattleManager::startBattle(N_Character::N_Player::Player* player, N_Pokemon::Pokemon* wildPokemon)
     {
         battleState.playerPokemon = player->chosenPokemon;
@@ -13,20 +15,27 @@ namespace N_Battle
         battleState.battleOngoing = true;
     
         std::cout << "A wild " << wildPokemon->name << " appeared!\n";
+        N_Utility::Utility::waitForEnter();
+        
         battle();
+    }
+    
+    void BattleManager::stopBattle()
+    {
+        battleState.battleOngoing = false;
     }
 
     void BattleManager::battle()
     {
         while (battleState.battleOngoing)
         {
-            if (battleState.playerTurn)
+            if (battleState.playerTurn && battleState.playerPokemon->canAttack())
             {
-                battleState.playerPokemon->attack(battleState.wildPokemon);
+                battleState.playerPokemon->selectAndUseMove(battleState.wildPokemon);
             }
-            else
+            else if (battleState.wildPokemon->canAttack())
             {
-                battleState.wildPokemon->attack(battleState.playerPokemon);
+                battleState.wildPokemon->selectAndUseMove(battleState.playerPokemon);
             }
 
             updateBattleState();
