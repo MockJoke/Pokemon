@@ -12,20 +12,25 @@ namespace N_Main
 {
     Game::Game()
     {
-        forestGrass = {
+        forestGrass =
+            {
             "Forest",
             {
-                N_Pokemon::N_Pokemons::Pidgey(), N_Pokemon::N_Pokemons::Caterpie(), N_Pokemon::N_Pokemons::Zubat()
+                new N_Pokemon::N_Pokemons::Pidgey(), new N_Pokemon::N_Pokemons::Caterpie(), new N_Pokemon::N_Pokemons::Zubat()
             },
             70
         };
     }
 
-    void Game::gameLoop(N_Character::N_Player::Player& player)
+    Game::~Game()
     {
-        N_Battle::BattleManager battleManager;
-        N_Battle::WildEncounterManager encounterManager;
-        N_Pokemon::Pokemon wildPokemon;
+        delete(wildPokemon);
+    }
+
+    void Game::gameLoop(N_Character::N_Player::Player* player)
+    {
+        N_Battle::BattleManager* battleManager = new N_Battle::BattleManager();
+        N_Battle::WildEncounterManager* encounterManager = new N_Battle::WildEncounterManager();
         
         int choice;
         bool keepPlaying = true;
@@ -34,11 +39,11 @@ namespace N_Main
         {
             N_Utility::Utility::clearConsole();
 
-            std::cout << "\nWhat would you like to do next, " << player.name << "?\n";
-            std::cout << "1. Battle Wild Pokémon\n";
+            std::cout << "\nWhat would you like to do next, " << player->name << "?\n";
+            std::cout << "1. Battle Wild Pokemon\n";
             std::cout << "2. Visit PokeCenter\n";
             std::cout << "3. Challenge Gyms\n";
-            std::cout << "4. Enter Pokémon League\n";
+            std::cout << "4. Enter Pokemon League\n";
             std::cout << "5. Quit\n";
             std::cout << "Enter your choice: ";
             std::cin >> choice;
@@ -49,15 +54,13 @@ namespace N_Main
             {
             case 1:
                 {
-                    wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
-                    battleManager.startBattle(player, wildPokemon);
+                    wildPokemon = encounterManager->getRandomPokemonFromGrass(forestGrass);
+                    battleManager->startBattle(player, wildPokemon);
                     break;
                 }
             case 2:
                 {
-                    std::cout << "You head to the PokeCenter.\n";
-                    player.chosenPokemon.heal();
-                    std::cout << player.chosenPokemon.name << "'s health is fully restored!\\n";
+                    visitPokeCenter(player);
                     break;
                 }
             case 3:
@@ -69,13 +72,13 @@ namespace N_Main
             case 4:
                 {
                     std::cout <<
-                        "You boldly step towards the Pokémon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'\n";
+                        "You boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'\n";
                     break;
                 }
             case 5:
                 {
                     std::cout <<
-                        "You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokémon training!'\n";
+                        "You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokemon training!'\n";
                     std::cout << "Are you sure you want to quit? (y/n): ";
                     char quitChoice;
                     std::cin >> quitChoice;
@@ -95,22 +98,25 @@ namespace N_Main
             N_Utility::Utility::waitForEnter();
         }
 
-        std::cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+        std::cout << "Goodbye, " << player->name << "! Thanks for playing!\n";
+
+        delete(encounterManager);
+        delete(battleManager);
     }
 
-    void Game::visitPokeCenter(N_Character::N_Player::Player& player)
+    void Game::visitPokeCenter(N_Character::N_Player::Player* player)
     {
-        if (player.chosenPokemon.health == player.chosenPokemon.maxHealth)
+        if (player->chosenPokemon->health == player->chosenPokemon->maxHealth)
         {
-            std::cout << "Your Pokémon is already at full health!\n";
+            std::cout << "Your Pokemon is already at full health!\n";
         }
         else
         {
             std::cout << "You head to the PokeCenter.\n";
             std::cout << "Healing your Pokémon...\n";
-            N_Utility::Utility::waitForEnter(); // Simulate a short pause for the healing process
-            player.chosenPokemon.heal(); // Heal the player's Pokémon
-            std::cout << player.chosenPokemon.name << "'s health is fully restored!\n";
+            N_Utility::Utility::waitForEnter();
+            player->chosenPokemon->heal();
+            std::cout << player->chosenPokemon->name << "'s health is fully restored!\n";
         }
     }
 }

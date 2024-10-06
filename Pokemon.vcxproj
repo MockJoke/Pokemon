@@ -649,13 +649,14 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="Source\Pokemon\Pokemons\Balbasaur.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Bulbasaur.cpp" />
     <ClCompile Include="Source\Pokemon\Pokemons\Caterpie.cpp" />
     <ClCompile Include="Source\Pokemon\Pokemons\Charmander.cpp" />
     <ClCompile Include="Source\Pokemon\Pokemons\Pidgey.cpp" />
     <ClCompile Include="Source\Pokemon\Pokemons\Pikachu.cpp" />
     <ClCompile Include="Source\Pokemon\Pokemons\Squirtle.cpp" />
     <ClCompile Include="Source\Pokemon\Pokemons\Zubat.cpp" />
+    <ClCompile Include="Source\Pokemon\StatusEffects\ParalyzedEffect.cpp" />
     <ClCompile Include="Source\Utility\Utility.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -739,9 +740,11 @@
     <ClInclude Include="Header\Character\ProfessorOak.hpp" />
     <ClInclude Include="Header\Main\Game.hpp" />
     <ClInclude Include="Header\Pokemon\Grass.hpp" />
+    <ClInclude Include="Header\Pokemon\Move.hpp" />
+    <ClInclude Include="Header\Pokemon\MoveName.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemon.hpp" />
     <ClInclude Include="Header\Pokemon\PokemonChoice.hpp" />
-    <ClInclude Include="Header\Pokemon\Pokemons\Balbasaur.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Bulbasaur.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemons\Caterpie.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemons\Charmander.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemons\Pidgey.hpp" />
@@ -749,6 +752,9 @@
     <ClInclude Include="Header\Pokemon\Pokemons\Squirtle.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemons\Zubat.hpp" />
     <ClInclude Include="Header\Pokemon\PokemonType.hpp" />
+    <ClInclude Include="Header\Pokemon\StatusEffects\IStatusEffect.hpp" />
+    <ClInclude Include="Header\Pokemon\StatusEffects\ParalyzedEffect.hpp" />
+    <ClInclude Include="Header\Pokemon\StatusEffects\StatusEffectType.hpp" />
     <ClInclude Include="Header\Utility\Utility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
