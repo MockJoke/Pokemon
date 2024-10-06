@@ -23,7 +23,16 @@ namespace N_Pokemon
                     std::cout << "... and it hit successfully!\n";
                 }
                 else
+                {
                     std::cout << "... but it missed!\n";
+                }
+            }
+            else if(selectedMove.name == "THUNDER SHOCK")
+            {
+                if(target->canApplyEffect())
+                {
+                    target->applyEffect(N_StatusEffects::StatusEffectType::PARALYZED);
+                }
             }
             else
             {

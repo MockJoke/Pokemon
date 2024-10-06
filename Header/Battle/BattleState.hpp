@@ -7,6 +7,7 @@ namespace N_Battle
     {
         N_Pokemon::Pokemon* playerPokemon;
         N_Pokemon::Pokemon* wildPokemon;
+        
         bool playerTurn;
         bool battleOngoing;
     };

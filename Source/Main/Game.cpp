@@ -40,10 +40,10 @@ namespace N_Main
             N_Utility::Utility::clearConsole();
 
             std::cout << "\nWhat would you like to do next, " << player->name << "?\n";
-            std::cout << "1. Battle Wild Pokémon\n";
+            std::cout << "1. Battle Wild Pokemon\n";
             std::cout << "2. Visit PokeCenter\n";
             std::cout << "3. Challenge Gyms\n";
-            std::cout << "4. Enter Pokémon League\n";
+            std::cout << "4. Enter Pokemon League\n";
             std::cout << "5. Quit\n";
             std::cout << "Enter your choice: ";
             std::cin >> choice;
@@ -72,13 +72,13 @@ namespace N_Main
             case 4:
                 {
                     std::cout <<
-                        "You boldly step towards the Pokémon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'\n";
+                        "You boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'\n";
                     break;
                 }
             case 5:
                 {
                     std::cout <<
-                        "You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokémon training!'\n";
+                        "You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokemon training!'\n";
                     std::cout << "Are you sure you want to quit? (y/n): ";
                     char quitChoice;
                     std::cin >> quitChoice;
@@ -108,7 +108,7 @@ namespace N_Main
     {
         if (player->chosenPokemon->health == player->chosenPokemon->maxHealth)
         {
-            std::cout << "Your Pokémon is already at full health!\n";
+            std::cout << "Your Pokemon is already at full health!\n";
         }
         else
         {

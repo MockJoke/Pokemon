@@ -2,6 +2,7 @@
 #include "../../Header/Pokemon/Pokemon.hpp"
 #include "../../Header/Pokemon/PokemonType.hpp"
 #include "../../Header/Utility/Utility.hpp"
+#include "../../Header/Pokemon/StatusEffects/ParalyzedEffect.hpp"
 
 namespace N_Pokemon
 {
@@ -125,5 +126,40 @@ namespace N_Pokemon
                 moves[i].power = 0;
             }
         }
+    }
+
+    bool Pokemon::canAttack()
+    {
+        if(appliedEffect == nullptr)
+        {
+            return true;
+        }
+        else
+        {
+            return appliedEffect->turnEndEffect(this);
+        }
+    }
+
+    bool Pokemon::canApplyEffect()
+    {
+        return appliedEffect == nullptr;
+    }
+
+    void Pokemon::applyEffect(N_StatusEffects::StatusEffectType effectToApply)
+    {
+        switch (effectToApply)
+        {
+        case N_StatusEffects::StatusEffectType::PARALYZED:
+            appliedEffect = new N_StatusEffects::ParalyzedEffect();
+            appliedEffect->applyEffect(this);
+            break;
+        default:
+            appliedEffect = nullptr;
+        }
+    }
+
+    void Pokemon::clearEffect()
+    {
+        appliedEffect = nullptr;
     }
 }
