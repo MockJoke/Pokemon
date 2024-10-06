@@ -2,18 +2,20 @@
 #include <string>
 #include "../../Pokemon/Pokemon.hpp"
 
-namespace N_Player
+namespace N_Character
 {
-    class Player
+    namespace N_Player
     {
-    public:
-        std::string name;
-        N_Pokemon::Pokemon chosenPokemon;
+        class Player
+        {
+        public:
+            std::string name;
+            N_Pokemon::Pokemon* chosenPokemon;
 
-        Player();
-        Player(std::string p_name, N_Pokemon::Pokemon p_chosenPokemon);
+            Player();
+            Player(std::string p_name);
 
-        void choosePokemon(int choice);
-    };
+            void choosePokemon(int choice);
+        };
+    }
 }
-

@@ -17,7 +17,6 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -53,27 +52,24 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared" >
+  <ImportGroup Label="Shared">
   </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -108,6 +104,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/std:c++17 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +120,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/std:c++17 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,7 +130,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
@@ -650,6 +649,14 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Source\Pokemon\Pokemons\Bulbasaur.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Caterpie.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Charmander.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Pidgey.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Pikachu.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Squirtle.cpp" />
+    <ClCompile Include="Source\Pokemon\Pokemons\Zubat.cpp" />
+    <ClCompile Include="Source\Pokemon\StatusEffects\ParalyzedEffect.cpp" />
     <ClCompile Include="Source\Utility\Utility.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -725,7 +732,6 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
   </ItemGroup>
-
   <ItemGroup>
     <ClInclude Include="Header\Battle\BattleManager.hpp" />
     <ClInclude Include="Header\Battle\BattleState.hpp" />
@@ -734,9 +740,21 @@
     <ClInclude Include="Header\Character\ProfessorOak.hpp" />
     <ClInclude Include="Header\Main\Game.hpp" />
     <ClInclude Include="Header\Pokemon\Grass.hpp" />
+    <ClInclude Include="Header\Pokemon\Move.hpp" />
+    <ClInclude Include="Header\Pokemon\MoveName.hpp" />
     <ClInclude Include="Header\Pokemon\Pokemon.hpp" />
     <ClInclude Include="Header\Pokemon\PokemonChoice.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Bulbasaur.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Caterpie.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Charmander.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Pidgey.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Pikachu.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Squirtle.hpp" />
+    <ClInclude Include="Header\Pokemon\Pokemons\Zubat.hpp" />
     <ClInclude Include="Header\Pokemon\PokemonType.hpp" />
+    <ClInclude Include="Header\Pokemon\StatusEffects\IStatusEffect.hpp" />
+    <ClInclude Include="Header\Pokemon\StatusEffects\ParalyzedEffect.hpp" />
+    <ClInclude Include="Header\Pokemon\StatusEffects\StatusEffectType.hpp" />
     <ClInclude Include="Header\Utility\Utility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
